@@ -5,6 +5,10 @@
 **Status**: Draft  
 **Input**: User description: "$ARGUMENTS"
 
+## Constitutional Alignment
+
+*This specification must adhere to the principles outlined in the project constitution (`.specify/memory/constitution.md`). Key principles for this project include simplicity, zero dependencies, robust input handling, and a menu-driven console interface. Ensure all functional requirements and user stories respect these constraints.*
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--

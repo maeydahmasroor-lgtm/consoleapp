@@ -27,97 +27,75 @@ description: "Task list template for feature implementation"
 
 <!-- 
   ============================================================================
-  IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
-  
+  IMPORTANT: The tasks below are SAMPLE TASKS for a console application.
+
   The /sp.tasks command MUST replace these with actual tasks based on:
-  - User stories from spec.md (with their priorities P1, P2, P3...)
+  - User stories from spec.md
   - Feature requirements from plan.md
-  - Entities from data-model.md
-  - Endpoints from contracts/
-  
-  Tasks MUST be organized by user story so each story can be:
-  - Implemented independently
-  - Tested independently
-  - Delivered as an MVP increment
-  
+
+  Tasks MUST be organized by user story so each story can be implemented
+  and tested as an independent increment.
+
   DO NOT keep these sample tasks in the generated tasks.md file.
   ============================================================================
 -->
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-**Purpose**: Project initialization and basic structure
+**Purpose**: Project initialization and basic structure.
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create project directories (`src`, `tests`) per the implementation plan.
+- [ ] T002 Initialize a Python virtual environment.
+- [ ] T003 Create `src/main.py` and `src/models.py` empty files.
 
 ---
 
 ## Phase 2: Foundational (Blocking Prerequisites)
 
-**Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
+**Purpose**: Core data model and application shell.
 
-**⚠️ CRITICAL**: No user story work can begin until this phase is complete
+**⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-Examples of foundational tasks (adjust based on your project):
+- [ ] T004 Implement the `Todo` class in `src/models.py` with `name`, `description`, and `status` attributes, as per the constitution.
+- [ ] T005 Implement the main application loop in `src/main.py` that displays a static menu and waits for user input.
+- [ ] T006 Create an in-memory list in `src/main.py` to store todo items.
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
-
-**Checkpoint**: Foundation ready - user story implementation can now begin in parallel
+**Checkpoint**: Foundation ready. The application runs, shows a menu, and can be exited.
 
 ---
 
-## Phase 3: User Story 1 - [Title] (Priority: P1) 🎯 MVP
+## Phase 3: User Story 1 - List Todos (Priority: P1) 🎯 MVP
 
-**Goal**: [Brief description of what this story delivers]
+**Goal**: The user can see a list of all current todo items.
 
-**Independent Test**: [How to verify this story works on its own]
-
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
-
-> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
-
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+**Independent Test**: Run the app and select the "list" option. If there are todos, they are displayed. If not, a message is shown.
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T010 [US1] Implement the "list" command logic in a dedicated function in `src/main.py`.
+- [ ] T011 [US1] The function should iterate through the in-memory list and print each todo's details.
+- [ ] T012 [US1] If the list is empty, print a message like "No todos found."
+- [ ] T013 [US1] Hook the function into the main menu loop.
 
-**Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
+**Checkpoint**: User Story 1 is functional. The "list" command works as expected.
 
 ---
 
-## Phase 4: User Story 2 - [Title] (Priority: P2)
+## Phase 4: User Story 2 - Add Todo (Priority: P2)
 
-**Goal**: [Brief description of what this story delivers]
+**Goal**: The user can add a new todo item to the list.
 
-**Independent Test**: [How to verify this story works on its own]
-
-### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
-
-- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+**Independent Test**: Run the app, select "add", provide input, and then use the "list" command to verify the new item was added.
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T021 [US2] Implement [Service] in src/services/[service].py
-- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T023 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T020 [US2] Implement the "add" command logic in a dedicated function.
+- [ ] T021 [US2] Prompt the user for the `name` (required) and `description` (optional).
+- [ ] T022 [US2] Perform input validation to ensure `name` is not empty.
+- [ ] T023 [US2] Create a new `Todo` object and add it to the in-memory list.
+- [ ] T024 [US2] Hook the "add" function into the main menu loop.
 
-**Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
+**Checkpoint**: User Story 2 is functional. New todos can be added.
 
 ---
 

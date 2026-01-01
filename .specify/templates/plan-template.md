@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Principle I (Simplicity)**: Does the plan avoid introducing GUIs, databases, or web frameworks?
+- [ ] **Principle II (Zero-Dependency)**: Does the plan rely exclusively on the Python 3.12 standard library?
+- [ ] **Principle III (Robust Input)**: Does the plan account for input validation and graceful error handling?
+- [ ] **Principle IV (Clean Code)**: Does the proposed structure promote readable, single-responsibility functions?
+- [ ] **Principle V (In-Memory Model)**: Does the data model align with the specified `Todo` class structure?
+- [ ] **Principle VI (Atomic Operations)**: Are the core operations (`add`, `list`, etc.) designed to be atomic and predictable?
+- [ ] **Principle VII (Menu Interface)**: Is the primary user interaction through a console menu loop?
 
 ## Project Structure
 
